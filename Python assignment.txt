@@ -1,0 +1,348 @@
+Assignment 1
+
+Name : Dikshith C S                                                                                
+PS No. : 99004963
+SFid : 260197
+
+
+Set 1
+### Q 1 : Odd man out python program (stray number)
+
+mylist = [11,22,11,11]
+#mylist = ["abc","efg","abc","abc"] #list for words
+
+temp = mylist[0]
+count = 1
+count1 = 0
+temp1 = mylist[1]
+
+for i in range(len(mylist)-1) :
+    if temp == mylist[i+1] :
+        count = count + 1
+    else :
+        temp1 = mylist[i+1]
+        count1 = count1 + 1
+if count < count1 :
+    print("The odd one in the list is",temp)
+    #print("The odd one in the list is " + temp)
+else :
+    print("The odd one in the list is ",temp1)
+    #print("The odd one in the list is " + temp1)
+
+
+
+
+### Q 2 : The element close to mean of the list
+
+mylist = [21,1,2,3,4,5,6,7,8.5,9,10]
+sum = 0
+
+for i in range(len(mylist)) :
+    sum = sum + mylist[i]
+
+mean = sum/len(mylist)
+print("mean ", mean)
+
+mylist.sort()
+temp = mean - mylist[0]
+
+arr = []
+for i in range(len(mylist)):
+    arr.append(mean - mylist[i])
+
+temp = arr[0]
+for i in range(len(arr)) :
+    arr[i] = abs(arr[i])
+
+for i in range(len(arr)-1) :
+    if temp < arr[i+1] :
+        pass
+    else :
+        temp = arr[i+1]
+
+temp1 = arr.index(temp)
+print("number near to mean in list is ", mylist[temp1])
+
+
+##### Q 3: The average speed of the vehicle with distance travelled for fixed time intervals
+
+distance = [0, 0.1, 0.25, 0.65, 1.25, 2.75, 5] #in terms of km
+time = 2 #hours
+avg_speed = []
+
+for i in range(len(distance)) :
+    avg_speed.append(distance[i]/time)
+
+print("avg speeds are -> ",avg_speed)
+
+
+##### Q 4 : Number of people in a bus with onboarding and leaving data
+
+
+n = int(input("Enter the number of stations :"))
+arr = []
+
+for i in range(n):
+    print("Please enter data for station ",i)
+    arr.append(int(input("Eneter the no. of people onboarding ")))
+    arr.append(int(input("Eneter the no. of people leaving ")))
+
+sum = 0
+for i in range(len(arr)):
+    if i%2 == 0:
+        sum = sum + arr[i]
+    else :
+        sum = sum - arr[i]
+
+print(sum)
+
+
+#### Q 5: The missing number in the modified list
+
+
+mylist = [1,2,3,4,5,6,7,8,9]
+mylist1 = [1,2,3,4,6,7,8,9]
+
+mylist.sort()
+mylist1.sort()
+
+print(mylist)
+print(mylist1)
+mylist1.append(0)
+
+for i in range(len(mylist)) :
+    if mylist[i] == mylist1[i] :
+        pass
+    else :
+        print(mylist[i])
+        break
+
+
+
+##### Q 6: Difference between two lowest numbers in lists
+
+
+mylist = [5,4,3,9,7]
+mylist1 = [11,133,5,9,16]
+
+temp = min(mylist)
+temp1 = min(mylist1)
+
+print(abs(temp-temp1))
+
+
+##### Q 7: Number of elements in the list smaller than their mean
+
+mylist = [5,4,3,9,7,11,55]
+
+mylist.sort()
+sum = 0
+for i in range(len(mylist)) :
+    sum = sum + mylist[i]
+
+mean = sum/len(mylist)
+
+print("list = ",mylist)
+print("mean = ",mean)
+
+count = 0
+for i in range(len(mylist)) :
+    if mylist[i] < mean :
+        count = count + 1
+print(count)
+
+
+
+Set 2:
+
+#### Q 1: Correct the Malformed time string
+
+time_list = ["5:70:65"]
+
+for i in time_list:
+    h, m, s = i.split(':')
+
+h = int(h)
+m = int(m)
+s = int(s)
+
+print(h,m,s)
+secq = s / 60
+sec = s % 60
+
+min = secq + m
+minq = min / 60
+min = min % 60
+
+hr = int(minq) + h
+
+#print(sec , int(min), hr)
+print(hr,":",int(min),":",sec)
+
+
+
+
+##### Q 2: Correct the malformed date string
+
+
+date_list = ["45/8/2018"]
+
+for i in date_list:
+    d, m, y = i.split('/')
+
+d = int(d)
+m = int(m)
+y = int(y)
+#print(d,m,y)
+
+date = d % 31
+da = d // 31
+
+yr = 0
+month = m + da
+if month > 12 :
+    month = month % 12
+    yr = 1
+
+print(date,end="/")
+print(month,end="/")
+print(y+yr)
+
+
+
+####### Q 3: Conversion of IP address from "a.b.c.d" into integer and vice versa
+
+
+
+ip_add = ["255.254.253.252"]
+print(type(ip_add[0]), ip_add)
+for i in ip_add:
+    a, b, c, d = i.split('.')
+
+ip_add = []
+ip_add.append(int(a))
+ip_add.append(int(b))
+ip_add.append(int(c))
+ip_add.append(int(d))
+
+#print(ip_add)
+
+print(type(ip_add[0]),ip_add)
+
+ip_addr = []
+
+ip_addr.append(str(ip_add[0]))
+ip_addr.append(str(ip_add[1]))
+ip_addr.append(str(ip_add[2]))
+ip_addr.append(str(ip_add[3]))
+
+ip = ip_addr[0] +"."+ ip_addr[1] +"."+ip_addr[0] +"."+ ip_addr[1]
+print(type(ip),ip)
+
+
+
+
+####### Q 4: Check whether the given string is an isogram or not
+
+
+my_str = "abcde"
+
+for i in my_str:
+    if my_str.count(i) > 1 :
+        print("String is not a isogram")
+        exit(0)
+print("String is a isogram")
+
+
+
+####### Q 5: Find the Mexican wave
+
+
+my_str = "abcdea"
+
+arr = []
+
+for i in range(len(my_str)):
+    my_str=my_str.lower()
+    temp_list=list(my_str)
+    if temp_list[i].isalpha():
+        temp_list[i] = my_str[i].upper()
+        my_str = ''.join(temp_list)
+        arr.append(my_str)
+print(arr)
+
+
+
+#### Q 6 : Find the largest number by deleting a single digit
+
+numb = 99006963
+
+numb = str(numb)
+minimum_num = numb[0]
+position_num = 0
+largest_num = ""
+for i in range(len(numb)-1):
+    if numb[i+1] < minimum_num:
+        minimum_num = numb[i+1]
+        position_num = i+1
+for i in range(len(numb)):
+    if position_num == i:
+        continue
+    largest_num += num[i]
+
+print("The largest number possible after deleting a single digit :", largest_num)
+
+
+#### Q 7: The largest number by shuffling the digits
+
+number = 784798
+
+number1 = str(number)
+number2 = list(number1)
+largest = ""
+for i in range(len(number2) - 1):
+    for j in range(len(number2) - 1):
+        if number2[j] < number2[j + 1]:
+            temp = number2[j]
+            number2[j] = number2[j + 1]
+            number2[j + 1] = temp
+
+for i in range(len(number2)):
+    largest += number2[i]
+print("The largest number after shuffling the digits :", largest)
+
+
+#### Q 8: Compute the word frequency in a given message
+
+
+my_str = "abc abc abd abd"
+
+my_str = my_str.split()
+my_str2 = []
+
+for i in my_str:
+    if i not in my_str2:
+        my_str2.append(i)
+
+for i in range(0, len(my_str2)):
+    print('Frequency of', my_str2[i], 'is :', my_str.count(my_str2[i]))
+
+
+##### Q 9: RGB to hex conversion and vice versa
+rgb = (255, 0, 255)
+rgb_hex = '%02x%02x%02x' % rgb
+print("Hex value of the RGB pair is : ", rgb_hex)
+
+
+#### Q 10 : Generating accumulated strings
+
+String1 = "abcdefgh"
+String2 = ""
+temp_str = ""
+for i in range(len(String1)):
+    c = String1[i].upper()
+    temp_str = c + String1[i] * i
+    String2 += (temp_str)
+    if i < len(String1) - 1 :
+        String2 += "-"
+print("Accumulated String is", String2)
